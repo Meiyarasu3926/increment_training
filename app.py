@@ -64,7 +64,9 @@ choice = st.selectbox("Select a page", pages)
 data_dir = 'dataset'
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 num_epochs = 12
-
+curr_path = os.getcwd()
+folder_path = os.path.join(curr_path, data_dir)
+st.write(f"folder path: {folder_path}")
 if choice == "Training":
   st.header("Training")
   upload_file = st.file_uploader("upload zip file dataset", type=['zip'], accept_multiple_files=True)
