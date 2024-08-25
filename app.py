@@ -157,5 +157,6 @@ st.write("""
     2.image folder contains only same type of images ex: if you store folder ants images then store only ants images that folder \n
     3.convert folder into zip file and upload it(.zip only). (you can upload multiple file also) \n
     4.select page option train images and test images \n
+    5.Must train with images(classes) and test images (you can select multiple images)
 """
 )
