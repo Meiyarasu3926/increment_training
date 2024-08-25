@@ -158,5 +158,6 @@ st.write("""
     3.convert folder into zip file and upload it(.zip only). (you can upload multiple file also) \n
     4.select page option train images and test images \n
     5.Must train with images(classes) and test images (you can select multiple images for testing)
+    6.This model sometime missclassify or wrong
 """
 )
