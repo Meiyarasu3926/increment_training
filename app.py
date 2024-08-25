@@ -148,7 +148,7 @@ if choice == "Test Own Image":
     if st.button("Classify Image"):
       st.write("Classifying...")
       for img_name, pred in pred.items():
-        st.write("Image: {} \nPrediction: {}".format(image_name, pred))
+        st.write("Image: {} \nPrediction: {}".format(img_name, pred))
 
 
 st.write("""
