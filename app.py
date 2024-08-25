@@ -85,7 +85,7 @@ if choice == "Training":
 
     optimizer = optim.SGD(model.parameters(), lr=0.001)
     criterion = nn.CrossEntropyLoss()
-
+    st.write(f"{device}")
     if st.button("start training"):
       st.write("start training...")
       correct = 0
