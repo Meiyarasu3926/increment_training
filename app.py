@@ -4,7 +4,6 @@ from torchvision import models, transforms, datasets
 import torch.optim as optim
 import streamlit as st
 import zipfile
-import cv2
 import torchvision
 from torch.utils.data import DataLoader, random_split
 import os
