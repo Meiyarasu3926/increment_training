@@ -152,7 +152,7 @@ if choice == "Test Own Image":
         st.write("## Prediction: {}".format(pred))
 
 st.write("""
-## Note: \n
+# Note: \n
     1.create a folder and that folder name should be what are images stored(ant, bees, trees) at least 100 images\n
     2.image folder contains only same type of images ex: if you store folder ants images then store only ants images that folder \n
     3.convert folder into zip file and upload it(.zip only). (you can upload multiple file also) \n
