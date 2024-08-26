@@ -174,6 +174,7 @@ passwd = st.text_input("password", type='password')
 
 
 if passwd == 'hacker4321':
+    st.write(os.listdir(data_dir))
     if st.button("Delete Dataset Folder"):
         try:
             if delete_folder(data_dir):
