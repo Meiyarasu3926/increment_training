@@ -164,7 +164,8 @@ st.write("""
 curr_path = os.getcwd()
 folder_path = os.path.join(curr_path, data_dir)
 st.write(f"folder path: {folder_path}")
-passwd = st.text_input("password")
+st.write(os.listdir(data_dir)")
+passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
         os.rmdir(data_dir)
