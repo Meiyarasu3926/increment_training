@@ -165,6 +165,6 @@ st.write("""
 
 st.write(os.path("model.pth"))
 passwd = st.text_input("password")
-if passwd == "hacker4321"
+if passwd == "hacker4321":
     if st.button("Delete"):
         os.rmdir(data_dir)
