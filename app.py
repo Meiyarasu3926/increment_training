@@ -164,8 +164,9 @@ st.write("""
 curr_path = os.getcwd()
 folder_path = os.path.join(curr_path, data_dir)
 st.write(f"folder path: {folder_path}")
-st.write(os.path.abspath("model.pth"))
+st.write(os.listdir(data_dir))
 passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
         os.rmdir(data_dir)
+        os.remove("/mount/src/increment_training/model.pth")
