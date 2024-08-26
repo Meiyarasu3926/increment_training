@@ -10,7 +10,6 @@ import os
 from io import BytesIO
 from PIL import Image
 import hashlib
-
 import shutil
 
 
@@ -177,4 +176,4 @@ if passwd == "hacker4321":
         folder_path = st.text_input("folder name: ")
         if folder_path in os.listdir(data_dir):
             shutil.rmtree(folder_path)
-            
+            st.write("folder deleted")
