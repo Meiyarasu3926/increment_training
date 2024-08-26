@@ -174,8 +174,8 @@ if passwd == 'hacker4321':
     
     st.sidebar.write(os.listdir(data_dir))
     if st.sidebar.button("Delete Dataset Folder"):
+        folder_path = st.sidebar.text_input("folder name")
         try:
-            folder_path = st.sidebar.text_input("folder name")
             if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
                 st.sidebar.write(f"Folder '{data_dir}' has been deleted successfully.")
             else:
