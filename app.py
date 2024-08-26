@@ -168,5 +168,8 @@ st.write(os.listdir(data_dir))
 passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
-        os.rmdir(data_dir)
-        os.remove("/mount/src/increment_training/model.pth")
+        folder_name = st.text_box("folder name")
+        file = os.listdir(data_dir)
+        if folder_name in file:
+            file.remove(folder_name)
+            os.remove("/mount/src/increment_training/model.pth")
