@@ -10,6 +10,12 @@ import os
 from io import BytesIO
 from PIL import Image
 import hashlib
+
+import shutil
+
+
+
+
 transform = {
     'train': transforms.Compose([
         transforms.RandomResizedCrop(224),
@@ -168,8 +174,7 @@ st.write(os.listdir(data_dir))
 passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
-        folder_name = st.text_input("folder name")
-        file = os.listdir(data_dir)
-        if folder_name in file:
-            file.remove(folder_name)
-            os.remove("/mount/src/increment_training/model.pth")
+        folder_path = st.text_input("folder name: ")
+        if folder_path in os.listdir(data_dir):
+            shutil.rmtree(folder_path)
+            
