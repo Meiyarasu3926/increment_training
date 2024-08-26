@@ -135,15 +135,7 @@ if choice == "Training":
       save_model(model, 'model.pth')
       st.write("model saved successfully...")
 
-    passwd = st.text_input("password", type='password')
-    f = st.text_input("folder name: ")
-    if passwd == 'hacker4321':
-        if st.button("Delete Dataset Folder"):
-            if delete_folder(data_dir):
-                st.write(f"Folder '{data_dir + '/' + f}' has been deleted successfully.")
-            else:
-                st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
-
+    
 if choice == "Test Own Image":
   st.header("Test Own Image")
 
@@ -177,3 +169,12 @@ st.write("""
     6.This model sometime missclassify or wrong
 """
 )
+passwd = st.text_input("password", type='password')
+f = st.text_input("folder name: ")
+
+if passwd == 'hacker4321':
+    if st.button("Delete Dataset Folder"):
+        if delete_folder(data_dir + '/' + f):
+            st.write(f"Folder '{data_dir}' has been deleted successfully.")
+        else:
+            st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
