@@ -168,7 +168,7 @@ st.write(os.listdir(data_dir))
 passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
-        folder_name = st.text_box("folder name")
+        folder_name = st.text_input("folder name")
         file = os.listdir(data_dir)
         if folder_name in file:
             file.remove(folder_name)
