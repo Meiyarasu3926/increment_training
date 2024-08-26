@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader, random_split
 import os
 from io import BytesIO
 from PIL import Image
+import shutil
 
 transform = {
     'train': transforms.Compose([
@@ -57,6 +58,13 @@ def test_own_image(image_path, model, transform, class_names, device):
     outputs = model(image)
     _, pred = torch.max(outputs, 1)
   return class_names[pred.item()]
+
+def delete_folder(folder_path):
+    if os.path.exists(folder_path):
+        shutil.rmtree(folder_path)
+        return True
+    else:
+        return False
 
 
 pages = ["Training", "Test Own Image"]
@@ -126,6 +134,15 @@ if choice == "Training":
 
       save_model(model, 'model.pth')
       st.write("model saved successfully...")
+
+    passwd = st.text_input("password", type='password)
+    f = st.text_input("folder name: ")
+    if passwd == 'hacker4321':
+        if st.button("Delete Dataset Folder"):
+            if delete_folder(data_dir):
+                st.write(f"Folder '{data_dir + '/' + f}' has been deleted successfully.")
+            else:
+                st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
 
 if choice == "Test Own Image":
   st.header("Test Own Image")
