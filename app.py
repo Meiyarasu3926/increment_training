@@ -60,8 +60,9 @@ def test_own_image(image_path, model, transform, class_names, device):
   return class_names[pred.item()]
 
 def delete_folder(folder_path):
-    if os.path.exists(folder_path):
-        shutil.rmtree(folder_path)
+    f = st.text_input("folder name")
+    if os.path.exists(folder_path + '/' + f):
+        shutil.rmtree(folder_path + '/' + f)
         return True
     else:
         return False
@@ -173,9 +174,8 @@ passwd = st.text_input("password", type='password')
 
 
 if passwd == 'hacker4321':
-    f = st.text_input("folder name: ")
     if st.button("Delete Dataset Folder"):
-        if delete_folder(data_dir + '/' + f):
+        if delete_folder(data_dir):
             st.write(f"Folder '{data_dir}' has been deleted successfully.")
         else:
             st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
