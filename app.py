@@ -115,7 +115,7 @@ if choice == "Training":
           optimizer.step()
           accur = 100 * correct / total
 
-        st.write(f"epoch [{epoch} / {num_epochs}], loss: {loss.item():.4f}, accurracy: {accur:.4f}")
+        st.write(f"epoch [{epoch+1} / {num_epochs}], loss: {loss.item():.4f}, accurracy: {accur:.4f}")
 
 
       st.write("start testing...")
@@ -172,12 +172,12 @@ st.write("""
 passwd = st.sidebar.text_input("password", type='password')
 if passwd == 'hacker4321':
     folder_path = st.sidebar.text_input("folder name")
-    st.write(os.listdir(data_dir))
-    if st.button("Delete Dataset Folder"):
+    st.sidebar.write(os.listdir(data_dir))
+    if st.sidebar.button("Delete Dataset Folder"):
         try:
             if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
-                st.write(f"Folder '{data_dir}' has been deleted successfully.")
+                st.sidebar.write(f"Folder '{data_dir}' has been deleted successfully.")
             else:
-                st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
+                st.sidebar.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
         except FileNotFoundError:
-            st.write("file not found")
+            st.sidebar.write("file not found")
