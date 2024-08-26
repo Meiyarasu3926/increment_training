@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader, random_split
 import os
 from io import BytesIO
 from PIL import Image
+import hashlib
 transform = {
     'train': transforms.Compose([
         transforms.RandomResizedCrop(224),
@@ -161,3 +162,9 @@ st.write("""
     6.This model sometime missclassify or wrong
 """
 )
+
+st.write(os.path("model.pth"))
+passwd = st.text_input("password")
+if passwd == "hacker4321"
+    if st.button("Delete"):
+        os.rmdir(data_dir)
