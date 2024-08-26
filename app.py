@@ -173,9 +173,9 @@ st.write(os.listdir(data_dir))
 passwd = st.text_input("password", type='password')
 if passwd == "hacker4321":
     if st.button("Delete"):
-        folder_path = st.text_input("folder name: ")
+        folder = st.text_input("folder name: ")
         try:
-            shutil.rmtree(folder_path)
+            shutil.rmtree(folder)
             st.write("folder deleted")
         except FileNotFoundError:
             st.write("Folder Not found!")
