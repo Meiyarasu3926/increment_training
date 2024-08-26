@@ -175,7 +175,10 @@ passwd = st.text_input("password", type='password')
 
 if passwd == 'hacker4321':
     if st.button("Delete Dataset Folder"):
-        if delete_folder(data_dir):
-            st.write(f"Folder '{data_dir}' has been deleted successfully.")
-        else:
-            st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
+        try:
+            if delete_folder(data_dir):
+                st.write(f"Folder '{data_dir}' has been deleted successfully.")
+            else:
+                st.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
+        except FileNotFoundError:
+            st.write("file not found")
