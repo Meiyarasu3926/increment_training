@@ -171,13 +171,14 @@ st.write("""
 )
 passwd = st.sidebar.text_input("password", type='password')
 if passwd == 'hacker4321':
-    folder_path = st.sidebar.text_input("folder name")
+    
     st.sidebar.write(os.listdir(data_dir))
     if st.sidebar.button("Delete Dataset Folder"):
         try:
+            folder_path = st.sidebar.text_input("folder name")
             if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
                 st.sidebar.write(f"Folder '{data_dir}' has been deleted successfully.")
             else:
                 st.sidebar.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
         except FileNotFoundError:
-            st.sidebar.write("file not found")
+            st.sidebar.write("folder not found")
