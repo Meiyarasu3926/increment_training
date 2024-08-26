@@ -165,13 +165,13 @@ st.write("""
     2.image folder contains only same type of images ex: if you store folder ants images then store only ants images that folder \n
     3.convert folder into zip file and upload it(.zip only). you can upload multiple file also (not recommend because run this project with "CPU") \n
     4.select page option train images and test images \n
-    5.Must train with images(classes) and test images (you can select multiple images for testing)
+    5.Must train with images(classes) and test images (you can select multiple images for testing) \n
     6.This model sometime missclassify or wrong
 """
 )
-passwd = st.text_input("password", type='password')
+passwd = st.sidebar.text_input("password", type='password')
 if passwd == 'hacker4321':
-    folder_path = st.text_input("folder name")
+    folder_path = st.sidebar.text_input("folder name")
     st.write(os.listdir(data_dir))
     if st.button("Delete Dataset Folder"):
         try:
