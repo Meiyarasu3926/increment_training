@@ -135,7 +135,7 @@ if choice == "Training":
       save_model(model, 'model.pth')
       st.write("model saved successfully...")
 
-    passwd = st.text_input("password", type='password)
+    passwd = st.text_input("password", type='password')
     f = st.text_input("folder name: ")
     if passwd == 'hacker4321':
         if st.button("Delete Dataset Folder"):
