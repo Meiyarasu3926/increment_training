@@ -173,8 +173,8 @@ passwd = st.text_input("password", type='password')
 
 
 if passwd == 'hacker4321':
+    f = st.text_input("folder name: ")
     if st.button("Delete Dataset Folder"):
-        f = st.text_input("folder name: ")
         if delete_folder(data_dir + '/' + f):
             st.write(f"Folder '{data_dir}' has been deleted successfully.")
         else:
