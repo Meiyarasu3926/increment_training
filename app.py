@@ -170,13 +170,11 @@ st.write("""
 """
 )
 passwd = st.text_input("password", type='password')
-
-
 if passwd == 'hacker4321':
     folder_path = st.text_input("folder name")
+    st.write(os.listdir(data_dir))
     if st.button("Delete Dataset Folder"):
         try:
-            st.write(os.listdir(data_dir))
             if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
                 st.write(f"Folder '{data_dir}' has been deleted successfully.")
             else:
