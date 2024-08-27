@@ -60,12 +60,12 @@ def test_own_image(image_path, model, transform, class_names, device):
     _, pred = torch.max(outputs, 1)
   return class_names[pred.item()]
 
-def delete_folder(folder_path):
-    if os.path.exists(folder_path):
-        shutil.rmtree(folder_path)
-        return True
-    else:
-        return False
+#def delete_folder(folder_path):
+#    if os.path.exists(folder_path):
+#        shutil.rmtree(folder_path)
+#        return True
+ #   else:
+#        return False
 
 
 pages = ["Training", "Test Own Image"]
@@ -170,18 +170,18 @@ st.write("""
     6.This model sometime missclassify or wrong
 """
 )
-passwd = st.sidebar.text_input("password", type='password')
-if passwd == 'hacker4321':
-    cwd = os.getcwd()
-    st.write(os.path.join(cwd, 'model.pth'))
+#passwd = st.sidebar.text_input("password", type='password')
+#if passwd == 'hacker4321':
+#    cwd = os.getcwd()
+#    st.write(os.path.join(cwd, 'model.pth'))
    
-    st.sidebar.write(os.listdir(data_dir))
-    folder_path = st.sidebar.text_input("folder name")
-    if st.sidebar.button("Delete Dataset Folder"):
-        try:
-            if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
-                st.sidebar.write(f"Folder '{data_dir}' has been deleted successfully.")
-            else:
-                st.sidebar.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
-        except FileNotFoundError:
-            st.sidebar.write("folder not found")
+ #   st.sidebar.write(os.listdir(data_dir))
+ #   folder_path = st.sidebar.text_input("folder name")
+#    if st.sidebar.button("Delete Dataset Folder"):
+ #       try:
+ #           if folder_path in  os.listdir(data_dir) and delete_folder(data_dir + '/' + folder_path):
+ #               st.sidebar.write(f"Folder '{data_dir}' has been deleted successfully.")
+ #           else:
+ #               st.sidebar.error(f"Folder '{data_dir}' does not exist or could not be deleted.")
+ #       except FileNotFoundError:
+  #          st.sidebar.write("folder not found")
