@@ -38,12 +38,10 @@ def save_model(model, path):
   torch.save(model.state_dict(), path)
 
 def load_save_model(model, path, device):
-    try:
-        model.load_state_dict(torch.load(path, map_location=device))
-        model = model.to(device)
-        return model
-    except RuntimeError as e:
-        st.write("Failed to load model state_dict: {str(e)}")
+   model.load_state_dict(torch.load(path, map_location=device))
+   model = model.to(device)
+   return model
+ 
    
 def load_dataset(data_dir, transform):
   dataset = datasets.ImageFolder(data_dir, transform)
@@ -173,8 +171,10 @@ st.write("""
 """
 )
 passwd = st.sidebar.text_input("password", type='password')
-if passwd == 'hacker4321':
-    
+if passwd == 'hacker4321":
+    cwd = os.getcwd()
+    st.write(os.path.join(cwd, 'model.pth'))
+   
     st.sidebar.write(os.listdir(data_dir))
     folder_path = st.sidebar.text_input("folder name")
     if st.sidebar.button("Delete Dataset Folder"):
