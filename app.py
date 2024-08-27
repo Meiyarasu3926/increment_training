@@ -38,10 +38,13 @@ def save_model(model, path):
   torch.save(model.state_dict(), path)
 
 def load_save_model(model, path, device):
-  model.load_state_dict(torch.load(path))
-  model = model.to(device)
-  return model
-
+    try:
+        model.load_state_dict(torch.load(path, map_location=device))
+        model = model.to(device)
+        return model
+    except RuntimeError as e:
+        st.write("Failed to load model state_dict: {str(e)}")
+   
 def load_dataset(data_dir, transform):
   dataset = datasets.ImageFolder(data_dir, transform)
   train_len = int(0.8 * len(dataset))
