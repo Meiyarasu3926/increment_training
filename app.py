@@ -171,7 +171,7 @@ st.write("""
 """
 )
 passwd = st.sidebar.text_input("password", type='password')
-if passwd == 'hacker4321":
+if passwd == 'hacker4321':
     cwd = os.getcwd()
     st.write(os.path.join(cwd, 'model.pth'))
    
